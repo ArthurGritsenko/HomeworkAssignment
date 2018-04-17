@@ -40,7 +40,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IDataParser.cs" />
+    <Compile Include="IFileService.cs" />
+    <Compile Include="ILogService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HomeworkAssignment.Domain\HomeworkAssignment.Domain.csproj">
+      <Project>{12EBAB9F-9004-404A-909F-7B567FE72785}</Project>
+      <Name>HomeworkAssignment.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

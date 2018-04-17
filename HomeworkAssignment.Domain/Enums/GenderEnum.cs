@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HomeworkAssignment.Services
+namespace HomeworkAssignment.Domain.Enums
 {
-    public class Class1
+    public enum GenderEnum
     {
+        Female,
+        Male
     }
 }
