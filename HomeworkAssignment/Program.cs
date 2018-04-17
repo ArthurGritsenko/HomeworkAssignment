@@ -1,4 +1,6 @@
-﻿using HomeworkAssignment.Core.Configurations;
+﻿using HomeworkAssignment.Core;
+using HomeworkAssignment.Core.Configurations;
+using HomeworkAssignment.Properties;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +11,18 @@ namespace HomeworkAssignment
 {
     class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
+        {
+            Init();
+
+            Console.WriteLine(string.Format(Resources.Instructions, Constants.ExitCommand));
+
+            while (InputProcessor.ProcessInput(Console.ReadLine(), Constants.ExitCommand).GetAwaiter().GetResult()) { };
+
+            Console.WriteLine(Resources.ExitMessage);
+        }
+
+        private static void Init()
         {
             ContainerConfig.Configure();
         }

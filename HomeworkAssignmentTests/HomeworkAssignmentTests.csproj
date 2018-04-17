@@ -48,13 +48,18 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="ApplicationTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\HomeworkAssignment\HomeworkAssignment.csproj">
+      <Project>{CED694D5-1374-4A34-B0FC-DAEB6BEEC6AA}</Project>
+      <Name>HomeworkAssignment</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="IntegrationTests\SampleData\SpaceDelimitedFile.txt" />
     <Content Include="IntegrationTests\SampleData\CommaDelimitedFile.txt" />

@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HomeworkAssignment.Interfaces
+namespace HomeworkAssignment.Core
 {
-    public class Class1
+    public static class Constants
     {
+        public const string ExitCommand = "q";
     }
 }
