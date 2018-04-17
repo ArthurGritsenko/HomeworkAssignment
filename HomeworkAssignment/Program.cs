@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HomeworkAssignment.Core.Configurations;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,7 @@ namespace HomeworkAssignment
     {
         static void Main(string[] args)
         {
+            ContainerConfig.Configure();
         }
     }
 }
