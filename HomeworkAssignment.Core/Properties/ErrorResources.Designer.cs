@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace HomeworkAssignment.Properties {
+namespace HomeworkAssignment.Core.Properties {
     using System;
     
     
@@ -22,24 +22,24 @@ namespace HomeworkAssignment.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class ErrorResources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resources() {
+        internal ErrorResources() {
         }
         
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("HomeworkAssignment.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("HomeworkAssignment.Core.Properties.ErrorResources", typeof(ErrorResources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -51,7 +51,7 @@ namespace HomeworkAssignment.Properties {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -61,20 +61,11 @@ namespace HomeworkAssignment.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Application has been stopped. Press any key to continue....
+        ///   Looks up a localized string similar to File {0} was not found.
         /// </summary>
-        internal static string ExitMessage {
+        public static string FileNotFoundError {
             get {
-                return ResourceManager.GetString("ExitMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Enter File Name to read or &apos;{0}&apos; to exit.
-        /// </summary>
-        internal static string Instructions {
-            get {
-                return ResourceManager.GetString("Instructions", resourceCulture);
+                return ResourceManager.GetString("FileNotFoundError", resourceCulture);
             }
         }
     }

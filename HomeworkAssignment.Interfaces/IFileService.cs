@@ -8,6 +8,6 @@ namespace HomeworkAssignment.Interfaces
 {
     public interface IFileService
     {
-        string[] Read(string fileName);
+        Task<string[]> ReadAsync(string fileName);
     }
 }

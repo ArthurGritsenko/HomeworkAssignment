@@ -1,6 +1,6 @@
 ﻿using HomeworkAssignment.Core;
 using HomeworkAssignment.Core.Configurations;
-using HomeworkAssignment.Properties;
+using HomeworkAssignment.Core.Properties;
 using System;
 using System.Collections.Generic;
 using System.Linq;

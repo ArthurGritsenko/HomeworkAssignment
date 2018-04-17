@@ -40,7 +40,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FileService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HomeworkAssignment.Core\HomeworkAssignment.Core.csproj">
+      <Project>{EB1ADD52-5FDE-443E-9057-3EDE897ABAEC}</Project>
+      <Name>HomeworkAssignment.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HomeworkAssignment.Interfaces\HomeworkAssignment.Interfaces.csproj">
+      <Project>{E2993E4C-E977-42A3-BE33-09DC46591F71}</Project>
+      <Name>HomeworkAssignment.Interfaces</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
