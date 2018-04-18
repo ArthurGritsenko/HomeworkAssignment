@@ -17,6 +17,7 @@ namespace HomeworkAssignmentTests
         private Mock<IFileService> fileServiceMoq;
         private Mock<IDataParserStrategy> parserStrategy;
         private Mock<IDataStorageService> dataStorageService;
+        private Mock<ISortingStrategy> sortingStrategy;
 
 
         [TestInitialize]
@@ -32,12 +33,14 @@ namespace HomeworkAssignmentTests
 
             parserStrategy = new Mock<IDataParserStrategy>();
             dataStorageService = new Mock<IDataStorageService>();
+            sortingStrategy = new Mock<ISortingStrategy>();
 
             consoleService = new ConsoleService(
                 fileServiceMoq.Object,
                 logServiceMoq.Object,
                 parserStrategy.Object,
-                dataStorageService.Object);
+                dataStorageService.Object,
+                sortingStrategy.Object);
         }
 
         [TestMethod]
@@ -60,7 +63,8 @@ namespace HomeworkAssignmentTests
                 fileServiceMoqWithException.Object,
                 logServiceMoq.Object,
                 parserStrategy.Object,
-                dataStorageService.Object);
+                dataStorageService.Object,
+                sortingStrategy.Object);
 
             var exitCommand = "q";
 

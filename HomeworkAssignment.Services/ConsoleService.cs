@@ -1,4 +1,6 @@
-﻿using HomeworkAssignment.Core.Properties;
+﻿using HomeworkAssignment.Core;
+using HomeworkAssignment.Core.Properties;
+using HomeworkAssignment.Domain.Enums;
 using HomeworkAssignment.Domain.Models;
 using HomeworkAssignment.Interfaces;
 using System;
@@ -16,13 +18,16 @@ namespace HomeworkAssignment.Services
         private readonly ILogService logService;
         private readonly IDataParserStrategy parserStrategy;
         private readonly IDataStorageService dataStorageService;
+        private readonly ISortingStrategy sortingStrategy;
 
-        public ConsoleService(IFileService fileService, ILogService logService, IDataParserStrategy parserStrategy, IDataStorageService dataStorageService)
+        public ConsoleService(IFileService fileService, ILogService logService, IDataParserStrategy parserStrategy, 
+            IDataStorageService dataStorageService, ISortingStrategy sortingStrategy)
         {
             this.fileService = fileService;
             this.logService = logService;
             this.parserStrategy = parserStrategy;
             this.dataStorageService = dataStorageService;
+            this.sortingStrategy = sortingStrategy;
         }
 
         public void PrintMessage(string message)
@@ -68,6 +73,9 @@ namespace HomeworkAssignment.Services
                 return false;
             }
 
+            PrintMessage(string.Empty);
+            PrintMessage(string.Format(Resources.Instructions, Constants.ExitCommand));
+
             return true;
         }
 
@@ -83,10 +91,24 @@ namespace HomeworkAssignment.Services
             var recordsList = dataStorageService.GetAll();
             if (recordsList != null && recordsList.Any())
             {
-                foreach (var record in recordsList)
-                {
-                    PrintMessage(record.ToString());
-                }
+                SortAndPrint(SortStrategyEnum.GenderThenLastName, recordsList);
+                SortAndPrint(SortStrategyEnum.BirthDate, recordsList);
+                SortAndPrint(SortStrategyEnum.LastNameDesc, recordsList);
+            }
+        }
+
+        private void SortAndPrint(SortStrategyEnum sortStrategyEnum, IEnumerable<RecordModel> recordsCollection)
+        {
+            PrintMessage(string.Empty);
+            PrintMessage($"Sorting using {sortStrategyEnum}:");
+            PrintRecordCollection(sortingStrategy.Sort(sortStrategyEnum, recordsCollection));
+        }
+
+        private void PrintRecordCollection(IEnumerable<RecordModel> recordsCollection)
+        {
+            foreach (var record in recordsCollection)
+            {
+                PrintMessage(record.ToString());
             }
         }
     }

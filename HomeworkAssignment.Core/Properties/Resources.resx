@@ -121,7 +121,7 @@
     <value>Application has been stopped. Press any key to continue...</value>
   </data>
   <data name="Instructions" xml:space="preserve">
-    <value>Enter File Name to read or '{0}' to exit</value>
+    <value>Enter File Name to read or '{0}' to exit (e.g. 'SampleData/CommaDelimitedFile.txt', 'SampleData/PipeDelimitedFile.txt' or 'SampleData/SpaceDelimitedFile.txt'</value>
   </data>
   <data name="PrintMessageNotice" xml:space="preserve">
     <value>---------Printing In memory Data---------</value>

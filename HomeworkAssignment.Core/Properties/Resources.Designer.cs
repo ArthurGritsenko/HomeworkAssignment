@@ -70,7 +70,7 @@ namespace HomeworkAssignment.Core.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enter File Name to read or &apos;{0}&apos; to exit.
+        ///   Looks up a localized string similar to Enter File Name to read or &apos;{0}&apos; to exit (e.g. &apos;SampleData/CommaDelimitedFile.txt&apos;, &apos;SampleData/PipeDelimitedFile.txt&apos; or &apos;SampleData/SpaceDelimitedFile.txt&apos;.
         /// </summary>
         public static string Instructions {
             get {
