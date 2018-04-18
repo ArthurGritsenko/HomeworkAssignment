@@ -61,6 +61,15 @@ namespace HomeworkAssignment.Core.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Bad Request. Please verify  your input.
+        /// </summary>
+        public static string BadRequestError {
+            get {
+                return ResourceManager.GetString("BadRequestError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to File &apos;{0}&apos; was not found.
         /// </summary>
         public static string FileNotFoundError {

@@ -1,4 +1,5 @@
-﻿using HomeworkAssignment.Domain.Enums;
+﻿using HomeworkAssignment.Core.Properties;
+using HomeworkAssignment.Domain.Enums;
 using HomeworkAssignment.Domain.Models;
 using HomeworkAssignment.Interfaces;
 using HomeworkAssignment.WebAPI.ViewModels;
@@ -59,7 +60,7 @@ namespace HomeworkAssignment.WebAPI.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return BadRequest(ErrorResources.BadRequestError);
             }
 
             if (model == null)
@@ -69,7 +70,7 @@ namespace HomeworkAssignment.WebAPI.Controllers
 
             dataStorageService.Store(model);
 
-            return Created("", model);
+            return Created("", RecordViewModel.Map(model));
         }
 
 
