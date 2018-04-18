@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="IDataParser.cs" />
     <Compile Include="IFileService.cs" />
+    <Compile Include="IConsoleService.cs" />
     <Compile Include="ILogService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
