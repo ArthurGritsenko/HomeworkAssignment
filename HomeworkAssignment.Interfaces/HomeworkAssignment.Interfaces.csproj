@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IDataParser.cs" />
+    <Compile Include="IDataParserStrategy.cs" />
     <Compile Include="IFileService.cs" />
     <Compile Include="IConsoleService.cs" />
     <Compile Include="ILogService.cs" />

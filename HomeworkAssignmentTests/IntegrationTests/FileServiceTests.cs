@@ -43,5 +43,29 @@ namespace HomeworkAssignmentTests.IntegrationTests
 
             Assert.Fail();
         }
+
+        [TestMethod]
+        [ExpectedException(typeof(FileNotFoundException), AllowDerivedTypes = false)]
+        public async Task Read_Empty_String_Throws_Not_Found_Exception_Test()
+        {
+            var service = new FileService(logServiceMoq.Object);
+            var filePath = string.Empty;
+
+            var result = await service.ReadAsync(filePath);
+
+            Assert.Fail();
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(FileNotFoundException), AllowDerivedTypes = false)]
+        public async Task Read_Null_String_Throws_Not_Found_Exception_Test()
+        {
+            var service = new FileService(logServiceMoq.Object);
+            string filePath = null;
+
+            var result = await service.ReadAsync(filePath);
+
+            Assert.Fail();
+        }
     }
 }

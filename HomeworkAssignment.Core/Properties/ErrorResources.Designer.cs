@@ -61,11 +61,38 @@ namespace HomeworkAssignment.Core.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to File {0} was not found.
+        ///   Looks up a localized string similar to File &apos;{0}&apos; was not found.
         /// </summary>
         public static string FileNotFoundError {
             get {
                 return ResourceManager.GetString("FileNotFoundError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number of fields is invalid..
+        /// </summary>
+        public static string RecordModelFieldsCountError {
+            get {
+                return ResourceManager.GetString("RecordModelFieldsCountError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Date Format is Invalid. The correct format is {0}.
+        /// </summary>
+        public static string RecordModelInvalidDateError {
+            get {
+                return ResourceManager.GetString("RecordModelInvalidDateError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gender &apos;{0}&apos; is not a valid value.
+        /// </summary>
+        public static string RecordModelInvalidGenderError {
+            get {
+                return ResourceManager.GetString("RecordModelInvalidGenderError", resourceCulture);
             }
         }
     }

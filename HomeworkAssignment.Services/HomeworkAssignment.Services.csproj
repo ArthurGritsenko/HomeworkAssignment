@@ -41,6 +41,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConsoleService.cs" />
+    <Compile Include="DataParsers\CommaDataParser.cs" />
+    <Compile Include="DataParsers\DataParserBase.cs" />
+    <Compile Include="DataParsers\DataParserStrategy.cs" />
+    <Compile Include="DataParsers\PipeDataParser.cs" />
+    <Compile Include="DataParsers\SpaceDataParser.cs" />
     <Compile Include="FileService.cs" />
     <Compile Include="DebugLogService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -49,6 +54,10 @@
     <ProjectReference Include="..\HomeworkAssignment.Core\HomeworkAssignment.Core.csproj">
       <Project>{EB1ADD52-5FDE-443E-9057-3EDE897ABAEC}</Project>
       <Name>HomeworkAssignment.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HomeworkAssignment.Domain\HomeworkAssignment.Domain.csproj">
+      <Project>{12EBAB9F-9004-404A-909F-7B567FE72785}</Project>
+      <Name>HomeworkAssignment.Domain</Name>
     </ProjectReference>
     <ProjectReference Include="..\HomeworkAssignment.Interfaces\HomeworkAssignment.Interfaces.csproj">
       <Project>{E2993E4C-E977-42A3-BE33-09DC46591F71}</Project>

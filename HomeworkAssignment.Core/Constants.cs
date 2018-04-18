@@ -9,5 +9,6 @@ namespace HomeworkAssignment.Core
     public static class Constants
     {
         public const string ExitCommand = "q";
+        public const string RecordModelDateTimeFormat = "m/d/yyyy";
     }
 }

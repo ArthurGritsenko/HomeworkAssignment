@@ -63,12 +63,17 @@
   <ItemGroup>
     <Compile Include="ApplicationTests.cs" />
     <Compile Include="IntegrationTests\FileServiceTests.cs" />
+    <Compile Include="IntegrationTests\DataParserTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\HomeworkAssignment.Domain\HomeworkAssignment.Domain.csproj">
+      <Project>{12EBAB9F-9004-404A-909F-7B567FE72785}</Project>
+      <Name>HomeworkAssignment.Domain</Name>
+    </ProjectReference>
     <ProjectReference Include="..\HomeworkAssignment.Interfaces\HomeworkAssignment.Interfaces.csproj">
       <Project>{E2993E4C-E977-42A3-BE33-09DC46591F71}</Project>
       <Name>HomeworkAssignment.Interfaces</Name>
