@@ -30,8 +30,9 @@ namespace HomeworkAssignment.App_Start
             container.RegisterType<IDataParser, CommaDataParser>("comma");
             container.RegisterType<IDataParser, PipeDataParser>("pipe");
             container.RegisterType<IDataParser, SpaceDataParser>("space");
-
             container.RegisterType<IDataParserStrategy, DataParserStrategy>();
+
+            container.RegisterType<ISortingStrategy, SortingStrategy>();
 
             return container;
         }

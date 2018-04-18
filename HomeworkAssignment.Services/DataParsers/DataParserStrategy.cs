@@ -21,7 +21,7 @@ namespace HomeworkAssignment.Services.DataParsers
             var dataParser = dataParsers.FirstOrDefault(x => x.IsValid(data));
             if (dataParser == null)
             {
-                throw new Exception("Could not find appropriate parser");
+                throw new ArgumentException($"Could not find appropriate parser for {data}");
             }
 
             return dataParser;

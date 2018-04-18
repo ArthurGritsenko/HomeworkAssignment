@@ -46,6 +46,7 @@
     <Compile Include="IFileService.cs" />
     <Compile Include="IConsoleService.cs" />
     <Compile Include="ILogService.cs" />
+    <Compile Include="ISortingStrategy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
