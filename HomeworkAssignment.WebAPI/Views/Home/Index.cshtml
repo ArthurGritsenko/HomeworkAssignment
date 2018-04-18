@@ -1,0 +1,87 @@
+﻿
+<div class="row">
+    <p class="h2">Add Record</p>
+    <form id="post_record">
+        <input style="width:400px" type="text" name="record" id="record" />
+        <input class="btn" type="submit" value="Add" />
+    </form>
+</div>
+<div class="row">
+    <p class="h2">Display Data</p>
+    <a class="btn" onclick="displayBy('gender')">Display By Gender</a>
+    <a class="btn" onclick="displayBy('birthdate')">Display By Birthdate</a>
+    <a class="btn" onclick="displayBy('name')">Display By Name</a>
+</div>
+
+<div class="row">
+    <p class="h2">Results</p>
+    <div id="results">
+
+    </div>
+    <table id="records_table" class="table">
+        <thead>
+            <tr>
+                <th>Last Name</th>
+                <th>First Name</th>
+                <th>Gender</th>
+                <th>Fav Color</th>
+                <th>Date Of Birth</th>
+            </tr>
+        </thead>
+    </table>
+</div>
+
+
+<div class="row">
+    <h2>Test Data</h2>
+    Curtis, Alice, Male, Red, 1/12/2000 <br />
+    Norman|Rosalie|Female|Red|12/1/1999 <br />
+    Curtis Alice Female Blue 01/30/2001 <br />
+</div>
+
+
+
+@section scripts{
+    <script type="text/javascript">
+        $('#post_record').submit(function (e) {
+            e.preventDefault();
+
+            $.ajax("api/records",
+                {
+                    data: JSON.stringify($('#record').val()),
+                    contentType: 'application/json',
+                    type: 'POST',
+                    success: function () {
+                        alert('record has been added');
+                        $('#record').val('')
+                    },
+                    error: function (e) { alert(e.responseJSON.Message) }
+                }
+            );
+        });
+
+        function displayBy(str) {
+            $('#records_table tbody > tr').remove();
+            $.ajax("api/records/" + str,
+                {
+                    contentType: 'application/json',
+                    type: 'GET',
+                    success: function (response) {
+                        $.each(response, function (i, item) {
+                            var $tr = $('<tr>').append(
+                                $('<td>').text(item.LastName),
+                                $('<td>').text(item.FirstName),
+                                $('<td>').text(item.Gender),
+                                $('<td>').text(item.FavoriteColor),
+                                $('<td>').text(item.DateOfBirth)
+                            ).appendTo('#records_table');
+                        });
+                    },
+                    error: function (e) { alert(e.responseJSON.Message) }
+                })
+        }
+
+
+
+    </script>
+}
