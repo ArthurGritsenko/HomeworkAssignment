@@ -77,6 +77,11 @@ namespace HomeworkAssignment.Services.DataParsers
         /// <returns>splitted strings</returns>
         protected virtual string[] SplitRecord(string record)
         {
+            if (string.IsNullOrWhiteSpace(record))
+            {
+                return new string[] { };
+            }
+
             return record
                     .Split(Delimeters, StringSplitOptions.RemoveEmptyEntries)
                     .Select(x => x?.Trim())

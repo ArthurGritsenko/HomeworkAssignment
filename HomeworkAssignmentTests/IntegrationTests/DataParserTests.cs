@@ -44,6 +44,7 @@ namespace HomeworkAssignmentTests.IntegrationTests
             var models = dataParser.Parse(data, true);
             var resultModel = models.First();
 
+            Assert.IsInstanceOfType(dataParser, typeof(CommaDataParser));
             Assert.AreEqual(4, models.Count());
             Assert.AreEqual(TestRecordModel.LastName, resultModel.LastName);
             Assert.AreEqual(TestRecordModel.FirstName, resultModel.FirstName);
@@ -62,6 +63,7 @@ namespace HomeworkAssignmentTests.IntegrationTests
             var models = dataParser.Parse(data, true);
             var resultModel = models.First();
 
+            Assert.IsInstanceOfType(dataParser, typeof(PipeDataParser));
             Assert.AreEqual(4, models.Count());
             Assert.AreEqual(TestRecordModel.LastName, resultModel.LastName);
             Assert.AreEqual(TestRecordModel.FirstName, resultModel.FirstName);
@@ -80,12 +82,42 @@ namespace HomeworkAssignmentTests.IntegrationTests
             var models = dataParser.Parse(data, true);
             var resultModel = models.First();
 
+            Assert.IsInstanceOfType(dataParser, typeof(SpaceDataParser));
             Assert.AreEqual(4, models.Count());
             Assert.AreEqual(TestRecordModel.LastName, resultModel.LastName);
             Assert.AreEqual(TestRecordModel.FirstName, resultModel.FirstName);
             Assert.AreEqual(TestRecordModel.Gender, resultModel.Gender);
             Assert.AreEqual(TestRecordModel.FavoriteColor, resultModel.FavoriteColor);
             Assert.AreEqual(TestRecordModel.DateOfBirth.ToShortDateString(), resultModel.DateOfBirth.ToShortDateString());
+        }
+
+        [TestMethod]
+        public async Task Parse_Mixed_File_Should_Not_Throw_Exception()
+        {
+            var filePath = @"IntegrationTests/SampleData/MixedFile.txt";
+
+            var data = await fileService.ReadAsync(filePath);
+            var dataParser = dataParserStrategy.GetDataParser(data.FirstOrDefault());
+            var models = dataParser.Parse(data, true);
+            var resultModel = models.First();
+
+            Assert.IsInstanceOfType(dataParser, typeof(SpaceDataParser));
+            Assert.AreEqual(2, models.Count());
+            Assert.AreEqual("Norman", resultModel.LastName);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(FormatException), AllowDerivedTypes = false)]
+        public async Task Parse_Mixed_File_Should_Throw_Exception()
+        {
+            var filePath = @"IntegrationTests/SampleData/MixedFile.txt";
+
+            var data = await fileService.ReadAsync(filePath);
+            var dataParser = dataParserStrategy.GetDataParser(data.FirstOrDefault());
+            var models = dataParser.Parse(data, false);
+            var resultModel = models.First();
+
+            Assert.Fail();
         }
 
         #region TestData
