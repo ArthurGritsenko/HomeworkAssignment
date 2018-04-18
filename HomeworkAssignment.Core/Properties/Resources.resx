@@ -123,4 +123,7 @@
   <data name="Instructions" xml:space="preserve">
     <value>Enter File Name to read or '{0}' to exit</value>
   </data>
+  <data name="PrintMessageNotice" xml:space="preserve">
+    <value>---------Printing In memory Data---------</value>
+  </data>
 </root>

@@ -1,4 +1,5 @@
-﻿using HomeworkAssignment.Domain.Enums;
+﻿using HomeworkAssignment.Core;
+using HomeworkAssignment.Domain.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,5 +19,10 @@ namespace HomeworkAssignment.Domain.Models
         public string FavoriteColor { get; set; }
 
         public DateTime DateOfBirth { get; set; }
+
+        public override string ToString()
+        {
+            return $"{LastName}, {FirstName}, {Gender}, {FavoriteColor}, {DateOfBirth.ToString(Constants.RecordModelDateTimeFormat)}";
+        }
     }
 }

@@ -12,8 +12,12 @@ namespace HomeworkAssignmentTests
     [TestClass]
     public class ApplicationTests
     {
+        private IConsoleService consoleService;
         private Mock<ILogService> logServiceMoq;
         private Mock<IFileService> fileServiceMoq;
+        private Mock<IDataParserStrategy> parserStrategy;
+        private Mock<IDataStorageService> dataStorageService;
+
 
         [TestInitialize]
         public void Initialize()
@@ -25,12 +29,20 @@ namespace HomeworkAssignmentTests
             fileServiceMoq
                 .Setup(x => x.ReadAsync(It.IsAny<string>()))
                 .Returns(Task.FromResult(new string[] { }));
+
+            parserStrategy = new Mock<IDataParserStrategy>();
+            dataStorageService = new Mock<IDataStorageService>();
+
+            consoleService = new ConsoleService(
+                fileServiceMoq.Object,
+                logServiceMoq.Object,
+                parserStrategy.Object,
+                dataStorageService.Object);
         }
 
         [TestMethod]
         public async Task App_Exits_By_Command_Test()
         {
-            var consoleService = new ConsoleService(fileServiceMoq.Object, logServiceMoq.Object);
             var exitCommand = "q";
 
             var result = await consoleService.ProcessInputAsync(exitCommand, exitCommand);
@@ -44,10 +56,15 @@ namespace HomeworkAssignmentTests
             var fileServiceMoqWithException = new Mock<IFileService>();
             fileServiceMoqWithException.Setup(x => x.ReadAsync(It.IsAny<string>())).Throws(new Exception());
 
-            var consoleService = new ConsoleService(fileServiceMoqWithException.Object, logServiceMoq.Object);
+            var consoleServiceTest = new ConsoleService(
+                fileServiceMoqWithException.Object,
+                logServiceMoq.Object,
+                parserStrategy.Object,
+                dataStorageService.Object);
+
             var exitCommand = "q";
 
-            var result = await consoleService.ProcessInputAsync(string.Empty, exitCommand);
+            var result = await consoleServiceTest.ProcessInputAsync(string.Empty, exitCommand);
 
             Assert.IsFalse(result);
         }
@@ -58,7 +75,6 @@ namespace HomeworkAssignmentTests
             var fileServiceMoqWithException = new Mock<IFileService>();
             fileServiceMoqWithException.Setup(x => x.ReadAsync(It.IsAny<string>())).Throws(new FileNotFoundException());
 
-            var consoleService = new ConsoleService(fileServiceMoqWithException.Object, logServiceMoq.Object);
             var exitCommand = "q";
 
             var result = await consoleService.ProcessInputAsync(string.Empty, exitCommand);

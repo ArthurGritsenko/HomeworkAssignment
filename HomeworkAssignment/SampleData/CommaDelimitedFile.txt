@@ -1,4 +1,4 @@
 ﻿Curtis, Alice, Male, Red, 1/12/2000
 Norman, Rosalie, Female, Rez, 12/1/1999
-Curtis, Alice, Female, Blue, 1/30/2001
-Duncan, Roger, Male, Yellow, 12/12/2012
+Curtis, Alice, Female, Blue, 01/30/2001
+Duncan, Roger, Male, Yellow, 12/02/2012

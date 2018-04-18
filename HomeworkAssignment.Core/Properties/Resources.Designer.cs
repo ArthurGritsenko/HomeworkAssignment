@@ -77,5 +77,14 @@ namespace HomeworkAssignment.Core.Properties {
                 return ResourceManager.GetString("Instructions", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ---------Printing In memory Data---------.
+        /// </summary>
+        public static string PrintMessageNotice {
+            get {
+                return ResourceManager.GetString("PrintMessageNotice", resourceCulture);
+            }
+        }
     }
 }

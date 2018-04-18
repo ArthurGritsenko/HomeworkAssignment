@@ -66,6 +66,7 @@
     <Compile Include="IntegrationTests\DataParserTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DataParserTests.cs" />
+    <Compile Include="DataStorageTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

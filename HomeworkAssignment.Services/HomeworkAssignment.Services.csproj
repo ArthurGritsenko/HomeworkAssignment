@@ -46,6 +46,7 @@
     <Compile Include="DataParsers\DataParserStrategy.cs" />
     <Compile Include="DataParsers\PipeDataParser.cs" />
     <Compile Include="DataParsers\SpaceDataParser.cs" />
+    <Compile Include="DataStorageService.cs" />
     <Compile Include="FileService.cs" />
     <Compile Include="DebugLogService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

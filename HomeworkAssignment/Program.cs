@@ -14,8 +14,7 @@ namespace HomeworkAssignment
 {
     class Program
     {
-        [Dependency]
-        public static IConsoleService ConsoleService { get; set; }
+        private static IConsoleService ConsoleService { get; set; }
 
         public static void Main(string[] args)
         {
@@ -31,6 +30,8 @@ namespace HomeworkAssignment
         private static void Init()
         {
             var container = ContainerConfig.Configure();
+
+            ConsoleService = container.Resolve<IConsoleService>();
         }
     }
 }

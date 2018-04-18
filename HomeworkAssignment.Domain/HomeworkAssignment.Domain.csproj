@@ -44,6 +44,11 @@
     <Compile Include="Models\RecordModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\HomeworkAssignment.Core\HomeworkAssignment.Core.csproj">
+      <Project>{EB1ADD52-5FDE-443E-9057-3EDE897ABAEC}</Project>
+      <Name>HomeworkAssignment.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
